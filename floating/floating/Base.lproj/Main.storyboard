@@ -26,7 +26,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YYJ-EZ-PEF">
-                                <rect key="frame" x="0.0" y="28" width="200" height="572"/>
+                                <rect key="frame" x="0.0" y="20" width="200" height="580"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Re5-ZJ-hj3"/>
@@ -43,20 +43,68 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MM-4z-vhp">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qwh-3I-scf">
+                                        <rect key="frame" x="0.0" y="536" width="600" height="44"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="epZ-35-KkZ"/>
+                                            <barButtonItem systemItem="camera" id="FID-13-stj"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="yM0-aj-lWX"/>
+                                            <barButtonItem systemItem="play" id="v4s-dg-7PE"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="fDO-Qe-h2O"/>
+                                            <barButtonItem systemItem="action" id="RMB-tn-4a7"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="mba-gw-aAg"/>
+                                            <barButtonItem systemItem="rewind" id="nSo-Pe-W1O"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="YNe-AR-FHk"/>
+                                            <barButtonItem systemItem="fastForward" id="lIl-mr-dl5"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="Vwu-yG-wlD"/>
+                                        </items>
+                                    </toolbar>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2b8-LL-tzZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <items>
+                                            <navigationItem title="MyEye" id="IXf-ME-JyN">
+                                                <barButtonItem key="leftBarButtonItem" systemItem="compose" id="jPO-W3-TXV">
+                                                    <connections>
+                                                        <action selector="showLeftView:" destination="BYZ-38-t0r" id="7pL-MM-zPG"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="organize" id="BYZ-Pm-scR"/>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Qwh-3I-scf" firstAttribute="leading" secondItem="7MM-4z-vhp" secondAttribute="leading" id="56u-2q-4Eq"/>
+                                    <constraint firstItem="2b8-LL-tzZ" firstAttribute="top" secondItem="7MM-4z-vhp" secondAttribute="top" id="Eac-nG-8RW"/>
+                                    <constraint firstItem="2b8-LL-tzZ" firstAttribute="leading" secondItem="7MM-4z-vhp" secondAttribute="leading" id="hJu-GU-gGm"/>
+                                    <constraint firstAttribute="trailing" secondItem="2b8-LL-tzZ" secondAttribute="trailing" id="iSf-OA-N8Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qwh-3I-scf" secondAttribute="trailing" id="mtB-4t-wdj"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qwh-3I-scf" secondAttribute="bottom" id="pY8-oe-fjG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="reU-ox-gdH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0nA-f0-zMN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="reU-ox-gdH" secondAttribute="bottom" id="Eqd-56-lMH"/>
                             <constraint firstItem="YYJ-EZ-PEF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MIz-A6-aHy"/>
-                            <constraint firstItem="YYJ-EZ-PEF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="U05-51-TKt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7MM-4z-vhp" secondAttribute="bottom" id="NjH-xK-Hyt"/>
+                            <constraint firstItem="7MM-4z-vhp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="P5Z-zo-gHl"/>
+                            <constraint firstItem="7MM-4z-vhp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SO3-wt-Z0r"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7MM-4z-vhp" secondAttribute="trailing" constant="-20" id="XdG-ai-Idk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="reU-ox-gdH" secondAttribute="trailing" constant="-20" id="cqA-46-QII"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YYJ-EZ-PEF" secondAttribute="bottom" id="eeY-RD-cZO"/>
+                            <constraint firstItem="YYJ-EZ-PEF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zkH-W0-lIw"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="234"/>
         </scene>
     </scenes>
 </document>

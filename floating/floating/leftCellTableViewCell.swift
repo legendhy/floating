@@ -11,7 +11,7 @@ import UIKit
 class leftCellTableViewCell: UITableViewCell {
 
     var leftCellTextField: UITextField!
-    
+     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
