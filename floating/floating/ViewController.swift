@@ -79,5 +79,84 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             curShowView = ShowView.Left
         }
     }
+    
+    
+    @IBAction func centerViewTap(sender: UITapGestureRecognizer) {
+        if curShowView == ShowView.Left {
+            UIView.animateWithDuration(duration, animations: { 
+                self.centerView.frame.origin.x -= 200
+            })
+            curShowView = ShowView.Center
+        }
+        else if curShowView == ShowView.Right
+        {
+            UIView.animateWithDuration(duration, animations: { 
+                self.centerView.frame.origin.x += 200
+            })
+            curShowView = ShowView.Center
+        }
+    }
+    
+    @IBAction func showRightView(sender: UIBarButtonItem) {
+        if curShowView != ShowView.Right {
+            UIView.animateWithDuration(duration, animations: { 
+                self.centerView.frame.origin.x -= 200
+            })
+            curShowView = ShowView.Right
+        }
+    }
+    
+    @IBAction func leftViewSwipe(sender: UISwipeGestureRecognizer) {
+        if curShowView == ShowView.Left {
+            UIView.animateWithDuration(duration, animations: { 
+                self.centerView.frame.origin.x -= 200
+            })
+            curShowView = ShowView.Center
+        }
+    }
+    
+    @IBAction func rightViewSwipe(sender: UISwipeGestureRecognizer) {
+        if curShowView == ShowView.Right {
+            UIView.animateWithDuration(duration, animations: { 
+                self.centerView.frame.origin.x += 200
+            })
+            curShowView = ShowView.Center
+        }
+    }
+    
+    @IBAction func centerViewSwipeRight(sender: UISwipeGestureRecognizer) {
+        if curShowView == ShowView.Center {
+            UIView.animateWithDuration(duration, animations: { 
+                self.centerView.frame.origin.x -= 200
+            })
+            curShowView = ShowView.Right
+        }
+        else if curShowView == ShowView.Left
+        {
+            UIView.animateWithDuration(duration, animations: {
+                self.centerView.frame.origin.x -= 200
+            })
+            curShowView = ShowView.Center
+        }
+    }
+    
+    @IBAction func centerViewSwipeLeft(sender: UISwipeGestureRecognizer) {
+        if curShowView == ShowView.Center {
+            UIView.animateWithDuration(duration, animations: { 
+                self.centerView.frame.origin.x += 200
+            })
+            curShowView = ShowView.Left
+        }
+        else if curShowView == ShowView.Right {
+            UIView.animateWithDuration(duration, animations: {
+                self.centerView.frame.origin.x += 200
+            })
+            curShowView = ShowView.Center
+        }
+
+    }
+
+    
+    
 }
 

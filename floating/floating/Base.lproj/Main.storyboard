@@ -21,9 +21,13 @@
                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reU-ox-gdH">
                                 <rect key="frame" x="400" y="20" width="200" height="580"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="kpA-91-Xdz"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="4x0-ma-9ss" appends="YES" id="Bjw-70-MPX"/>
+                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YYJ-EZ-PEF">
                                 <rect key="frame" x="0.0" y="20" width="200" height="580"/>
@@ -68,15 +72,20 @@
                                             <navigationItem title="MyEye" id="IXf-ME-JyN">
                                                 <barButtonItem key="leftBarButtonItem" systemItem="compose" id="jPO-W3-TXV">
                                                     <connections>
-                                                        <action selector="showLeftView:" destination="BYZ-38-t0r" id="7pL-MM-zPG"/>
+                                                        <action selector="showLeftView:" destination="BYZ-38-t0r" id="LRa-pM-Ca0"/>
                                                     </connections>
                                                 </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" systemItem="organize" id="BYZ-Pm-scR"/>
+                                                <barButtonItem key="rightBarButtonItem" systemItem="organize" id="BYZ-Pm-scR">
+                                                    <connections>
+                                                        <action selector="showRightView:" destination="BYZ-38-t0r" id="sFl-if-vAd"/>
+                                                    </connections>
+                                                </barButtonItem>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="Qwh-3I-scf" firstAttribute="leading" secondItem="7MM-4z-vhp" secondAttribute="leading" id="56u-2q-4Eq"/>
                                     <constraint firstItem="2b8-LL-tzZ" firstAttribute="top" secondItem="7MM-4z-vhp" secondAttribute="top" id="Eac-nG-8RW"/>
@@ -85,9 +94,15 @@
                                     <constraint firstAttribute="trailing" secondItem="Qwh-3I-scf" secondAttribute="trailing" id="mtB-4t-wdj"/>
                                     <constraint firstAttribute="bottom" secondItem="Qwh-3I-scf" secondAttribute="bottom" id="pY8-oe-fjG"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="04P-hh-wQi" appends="YES" id="aio-Hc-pD2"/>
+                                    <outletCollection property="gestureRecognizers" destination="p7P-rn-oWk" appends="YES" id="SAg-Km-fP6"/>
+                                    <outletCollection property="gestureRecognizers" destination="stt-36-Xn7" appends="YES" id="iHf-6w-c63"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="reU-ox-gdH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0nA-f0-zMN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="reU-ox-gdH" secondAttribute="bottom" id="Eqd-56-lMH"/>
@@ -100,9 +115,37 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YYJ-EZ-PEF" secondAttribute="bottom" id="eeY-RD-cZO"/>
                             <constraint firstItem="YYJ-EZ-PEF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zkH-W0-lIw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ijm-mr-XXe" appends="YES" id="pSD-Qr-d4e"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="04P-hh-wQi">
+                    <connections>
+                        <action selector="centerViewTap:" destination="BYZ-38-t0r" id="jV1-DF-a7A"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="ijm-mr-XXe">
+                    <connections>
+                        <action selector="leftViewSwipe:" destination="BYZ-38-t0r" id="2IU-Xf-X1W"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="4x0-ma-9ss">
+                    <connections>
+                        <action selector="rightViewSwipe:" destination="BYZ-38-t0r" id="dgb-Zp-VPW"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="p7P-rn-oWk">
+                    <connections>
+                        <action selector="centerViewSwipeRight:" destination="BYZ-38-t0r" id="zZK-ia-8kk"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="stt-36-Xn7">
+                    <connections>
+                        <action selector="centerViewSwipeLeft:" destination="BYZ-38-t0r" id="NqI-qu-ca8"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="245" y="234"/>
         </scene>
