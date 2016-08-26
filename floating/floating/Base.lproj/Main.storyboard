@@ -100,13 +100,29 @@
                                     <outletCollection property="gestureRecognizers" destination="stt-36-Xn7" appends="YES" id="iHf-6w-c63"/>
                                 </connections>
                             </view>
+                            <tableView hidden="YES" clipsSubviews="YES" tag="4" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="h5j-93-sez">
+                                <rect key="frame" x="360" y="67" width="240" height="310"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="changeSplit" id="rrL-Pc-o0k">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" tableViewCell="rrL-Pc-o0k" id="lV4-nC-ZcE">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="reU-ox-gdH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0nA-f0-zMN"/>
+                            <constraint firstItem="h5j-93-sez" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="47" id="2Ow-TG-wVH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="reU-ox-gdH" secondAttribute="bottom" id="Eqd-56-lMH"/>
                             <constraint firstItem="YYJ-EZ-PEF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MIz-A6-aHy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h5j-93-sez" secondAttribute="trailing" constant="-20" id="NIZ-8h-TmB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7MM-4z-vhp" secondAttribute="bottom" id="NjH-xK-Hyt"/>
                             <constraint firstItem="7MM-4z-vhp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="P5Z-zo-gHl"/>
                             <constraint firstItem="7MM-4z-vhp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SO3-wt-Z0r"/>

@@ -21,8 +21,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var centerView: UIView!
     let duration: NSTimeInterval = 0.3
     var curShowView: ShowView!
+    var changeScreen: UITableView!
     
     let leftCellName = ["本地文件","远程回话","报警详情","推送设置","本地设置","远程遥控","远程设置","帮助"]
+    let screenSplitName = ["1","3","4","6","8","9","16"]
     
 
     override func viewDidLoad() {
@@ -36,9 +38,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         rightView = self.view.viewWithTag(2)
         centerView = self.view.viewWithTag(3)
         
+        changeScreen = self.view.viewWithTag(4) as! UITableView
+        changeScreen.delegate = self
+        changeScreen.dataSource = self
+        
         self.view.addSubview(leftTableView)
         self.view.addSubview(rightView)
         self.view.addSubview(centerView)
+        self.view.addSubview(changeScreen)
         
         curShowView = ShowView.Center
     }
@@ -50,19 +57,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return leftCellName.count
+        if tableView == leftTableView {
+            return leftCellName.count
+        }
+        else if tableView == changeScreen
+        {
+            return screenSplitName.count
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cellId = "leftViewCell"
-        var cell = leftTableView.dequeueReusableCellWithIdentifier(cellId)
-        if cell == nil
-        {
-            cell = leftCellTableViewCell(style: .Value1, reuseIdentifier: cellId)
+        var cellId = "leftViewCell"
+        var cell: UITableViewCell!
+        if tableView == leftTableView {
+            cell = leftTableView.dequeueReusableCellWithIdentifier(cellId)
+            if cell == nil
+            {
+                cell = leftCellTableViewCell(style: .Value1, reuseIdentifier: cellId)
+            }
+            cell?.textLabel?.textColor = UIColor.redColor()
+            cell?.textLabel?.text = leftCellName[indexPath.row]
         }
-        cell?.textLabel?.textColor = UIColor.redColor()
-        cell?.textLabel?.text = leftCellName[indexPath.row]
+        else if tableView == changeScreen
+        {
+            cellId = "changeSplit"
+            cell = changeScreen.dequeueReusableCellWithIdentifier(cellId)
+            if cell == nil {
+                cell = UITableViewCell(style: .Value1, reuseIdentifier: cellId)
+            }
+            cell.textLabel?.textColor = UIColor.redColor()
+            cell.textLabel?.text = screenSplitName[indexPath.row]
+            cell.textLabel?.textAlignment = NSTextAlignment.Center
+        }
+        
         return cell!
     }
 
@@ -95,14 +124,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             })
             curShowView = ShowView.Center
         }
+        else if changeScreen.hidden == false
+        {
+            UIView.animateWithDuration(duration, animations: {
+                self.changeScreen.hidden = true
+            })
+        }
     }
     
     @IBAction func showRightView(sender: UIBarButtonItem) {
-        if curShowView != ShowView.Right {
+//        if curShowView != ShowView.Right {
+//            UIView.animateWithDuration(duration, animations: {
+//                self.centerView.frame.origin.x -= 200
+//            })
+//            curShowView = ShowView.Right
+//        }
+        if changeScreen.hidden == true {
             UIView.animateWithDuration(duration, animations: { 
-                self.centerView.frame.origin.x -= 200
+                self.changeScreen.hidden = false
             })
-            curShowView = ShowView.Right
+        }
+        else
+        {
+            UIView.animateWithDuration(duration, animations: {
+                self.changeScreen.hidden = true
+            })
         }
     }
     
